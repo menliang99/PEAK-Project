@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<script type="text/javascript">
+    function SelNumFun3(index)
+    {
+	if (index == 0)
+          document.getElementById('Smit').style.display = 'none';
+	else
+	  document.getElementById('Smit').style.display = 'block';
+    }
+
+ </script>
+
+
+<html>
+<head>
+<title>NICS PeaK</title>
+<![if !IE]>  <link href="styles/screen.css" rel="stylesheet" type="text/css" media="screen" /> <![endif]>
+</head>
+<body>
+<form action="cgi-bin/PBSexample.cgi" enctype="multipart/form-data" method="POST">
+
+<div id="wrapper">
+
+	<div id="header">
+        <h1><!--<br><font size="80" face="arial" color="white">
+            Hthreads MPSoPC in the Cloud</font>--><img src = "images/peak.png"/></h1>
+
+
+
+	</div>
+	<div id="menu">
+                <center>
+		<ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="link.html"><li>Compiler Linking Tool</li></a>
+            <a href="execute.html"><li>Program Execution Tool</li></a>
+	    <a href="generate.html"><li>PEAK Performance Generator</li></a>
+            <a href="database.html"><li>PEAK Performance Checkout</li></a>
+            <a href="http://www.nics.tennessee.edu/"><li>NICS Home Page</li></a>
+		</ul>
+                </center>
+	</div>
+
+	<div id="content">
+        <table align = "center" ><b>Example Script for Program Execution</b>
+        </table> 
+ 	<hr />
+    	<table> 
+            <td width="30" ></td>
+            <td width="250" align = "left" >Select Platform: </td>
+	    <td width="500" align = "left">
+                       		 <select name = "computer" size = "1"> 
+                           	 <option selected value = "0" onClick="SelNumFun3(0)"> -- -- </option>
+                           	 <option value = "1" onClick="SelNumFun3(1)"> Kraken </option>
+                           	 <option value = "2" onClick="SelNumFun3(1)"> Nautilus </option>
+                          	 </select>
+            </td>    
+	</table>
+	 <hr />
+
+	<table>
+            <td width="30" ></td>		
+            <td width="250" align = "left">Program Name:</td>
+            <td width="500" align = "left"><input type="text" size="20" name="program_name"</td>
+	
+	</table>
+	<hr />
+
+	<table>
+            <td width="30" ></td>		
+            <td width="250" align = "left">Is MKL Linked with:</td>	  
+	    <td width="500" align = "left">
+                       		 <select name = "MKL" size = "1"> 
+                           	 <option value = "0" > No </option>
+                           	 <option selected value = "1" > Yes </option>
+
+                          	 </select>
+            </td>  
+	</table>
+
+	<hr />
+
+	<table>
+            <td width="30" ></td>
+            <td width="250" align = "left">Choose Number of Cores: </td>
+	    <td width="500" align = "left">
+                       		 <select name = "corenum" size = "1">
+                           	 <option selected value = "12"> 12 </option>
+                           	 <option value = "24"> 24 </option>
+                           	 <option value = "36"> 36 </option>
+                          	 <option value = "48"> 48 </option>
+                           	 <option value = "60"> 60 </option>
+                           	 <option value = "72"> 72 </option>
+                           	 <option value = "84"> 84 </option>
+                           	 <option value = "96"> 96 </option>
+                           	 <option value = "108"> 108 </option>
+                           	 <option value = "120"> 120 </option>
+                          	 </select>
+            </td>  
+         
+        </table> 
+ 	<hr />
+
+	<table>
+            <td width="30" ></td>
+            <td width="250" align = "left">Choose Executiong Time: </td>
+	    <td width="500" align = "left">
+                       		 <select name = "corenum" size = "1">
+                           	 <option selected value = "5"> 5 minutes </option>
+                           	 <option value = "10"> 10 minutes </option>
+                           	 <option value = "20"> 20 minutes </option>
+                          	 <option value = "60"> 1 hour </option>
+                           	 <option value = "120"> 2 hours </option>
+                           	 <option value = "720"> 12 hours</option>
+                           	 <option value = "1440"> 24 hours </option>
+                          	 </select>
+            </td>        
+        </table> 
+	<hr />
+
+	<table>
+            <td width="30" ></td>		
+            <td width="250" align = "left">Select Number of Threads:</td>	  
+	    <td width="500" align = "left">
+                       		 <select name = "threadnum" size = "1">
+                           	 <option selected value = "1"> 1 </option>
+                           	 <option value = "2"> 2 </option>
+                           	 <option value = "6"> 6 </option>
+                          	 <option value = "12"> 12 </option>
+                           	 <option value = "24"> 24 </option>
+                           	 <option value = "36"> 36 </option>
+                          	 <option value = "48"> 48 </option>
+                           	 <option value = "60"> 60 </option>
+                           	 <option value = "72"> 72 </option>
+                           	 <option value = "84"> 84 </option>
+                           	 <option value = "96"> 96 </option>
+                           	 <option value = "108"> 108 </option>
+                           	 <option value = "120"> 120 </option>
+                          	 </select>
+            </td>  
+	</table>
+
+	<hr />
+ 
+    <br>
+
+	<div id = "Smit" style = "display:none" align = "left">
+            <table align = "left" width = "200" >
+	    <tr>
+		<td></td>
+		<td align = "center"><br><input type = "submit" value = "Check Script Example" ></td>
+		<td></td>
+	    </tr>
+
+	    </table>
+	</div>
+      </div>
+
+      <div id="footer">&copy; 2012 National Institute for Computational Sciences.  All rights reserved.</div>
+ </div>
+
+    <br>
+</body>
+</html>
+

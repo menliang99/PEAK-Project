@@ -1,0 +1,11 @@
+
+#PBS -N Not-Defined
+#PBS -A UT-SUPPORT 
+#PBS -j oe
+#PBS -l walltime=1:00:00,ncpus=64
+
+export MKL_DYNAMIC=FLASE
+export KMP_AFFINITY=disabled
+export MKL_NUM_THREADS=64
+
+dplace -x2 numactl --interleave= `cat /dev/cpuset/torque/$PBS_JOBID/mems` ./Not-Defined

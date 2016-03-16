@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<script type="text/javascript">
+    function SelNumFun(index, comm)
+    {
+
+/*
+      switch (index) {
+
+	    case 0:             document.getElementById('allfun').style.display = 'block';
+				break;
+            case 1:             document.getElementById('daxpy').style.display = 'block';
+                     		break;
+            case 2:             document.getElementById('dgeev').style.display = 'block';
+                     		break;
+	    case 3:             document.getElementById('dgels').style.display = 'block';
+				break;
+            case 4:             document.getElementById('dgemm').style.display = 'block';
+                     		break;
+            case 5:             document.getElementById('dgemv').style.display = 'block';
+                     		break;
+	    case 6:             document.getElementById('dgesv').style.display = 'block';
+				break;
+            case 7:             document.getElementById('dgetrf').style.display = 'block';
+                     		break;
+            case 8:             document.getElementById('dpotrf').style.display = 'block';
+                     		break;
+	    case 9:             document.getElementById('dsygv').style.display = 'block';
+				break;
+*/
+
+	if (index == 0 && comm == 0)
+          document.getElementById('Smit').style.display = 'none';
+	else
+	  document.getElementById('Smit').style.display = 'block';
+
+	if (index == 0 && comm == 1)
+          document.getElementById('daxpy').style.display = 'block';
+	else
+	  document.getElementById('daxpy').style.display = 'none';
+	if (index == 0 && comm == 2)
+          document.getElementById('dgeev').style.display = 'block';
+	else
+          document.getElementById('dgeev').style.display = 'none';
+
+	if (index == 0 && comm == 3)
+          document.getElementById('dgels').style.display = 'block';
+	else
+          document.getElementById('dgels').style.display = 'none';
+	if (index == 0 && comm == 4)
+          document.getElementById('dgemm').style.display = 'block';
+	else
+          document.getElementById('dgemm').style.display = 'none';
+	if (index == 0 && comm == 5)
+          document.getElementById('dgemv').style.display = 'block';
+	else
+          document.getElementById('dgemv').style.display = 'none';
+	if (index == 1 && comm == 0)
+          document.getElementById('dgesv').style.display = 'block';
+	else
+          document.getElementById('dgesv').style.display = 'none';
+	if (index == 1 && comm == 1)
+          document.getElementById('dgetrf').style.display = 'block';
+	else
+          document.getElementById('dgetrf').style.display = 'none';
+	if (index == 1 && comm == 2)
+          document.getElementById('dpotrf').style.display = 'block';
+	else
+          document.getElementById('dpotrf').style.display = 'none';
+	if (index == 1 && comm == 3)
+          document.getElementById('dsygv').style.display = 'block';
+	else
+          document.getElementById('dsygv').style.display = 'none';
+	if (index == 1 && comm == 4)
+          document.getElementById('allfun').style.display = 'block';
+	else
+          document.getElementById('allfun').style.display = 'none';
+
+
+    }
+
+ </script>
+
+
+<html>
+<head>
+<title>NICS PeaK</title>
+<![if !IE]>  <link href="styles/screen.css" rel="stylesheet" type="text/css" media="screen" /> <![endif]>
+</head>
+<body>
+<form action="cgi-bin/gnuplot.cgi" enctype="multipart/form-data" method="POST">
+
+<div id="wrapper">
+
+	<div id="header">
+        <h1><!--<br><font size="80" face="arial" color="white">
+            Hthreads MPSoPC in the Cloud</font>--><img src = "images/peak.png"/></h1>
+
+
+
+	</div>
+	<div id="menu">
+                <center>
+		<ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="link.html"><li>Compiler Linking Tool</li></a>
+            <a href="execute.html"><li>Program Execution Tool</li></a>
+	    <a href="generate.html"><li>PEAK Performance Generator</li></a>
+            <a href="database.html"><li>PEAK Performance Checkout</li></a>
+            <a href="http://www.nics.tennessee.edu/"><li>NICS Home Page</li></a>
+		</ul>
+                </center>
+	</div>
+
+	<div id="content">
+        <table align = "center" ><b>Performance Checkout</b>
+        </table> 
+ 	<hr />
+    	<table> 
+            <td width="250">Select Numerical Functions: </td>
+	    <td>
+				 <select name = "FunSel" width="300"> 
+                           	 <option value = "Vnone"  onClick="SelNumFun(0, 0)">----</option>
+   				 <option value = "daxpy" onClick="SelNumFun(0, 1)">daxpy</option>
+				 <option value = "dgeev" onClick="SelNumFun(0, 2)">dgeev</option>
+				 <option value = "dgels" onClick="SelNumFun(0, 3)">dgels</option>
+				 <option value = "dgemm" onClick="SelNumFun(0, 4)">dgemm</option>
+				 <option value = "dgemv" onClick="SelNumFun(0, 5)">dgemv</option>
+				 <option value = "dgesv" onClick="SelNumFun(1, 0)">dgesv</option>
+				 <option value = "dgetrf" onClick="SelNumFun(1,1)">dgetrf</option>
+				 <option value = "dpotrf" onClick="SelNumFun(1,2)">dpotrf</option>
+				 <option value = "dsygv"  onClick="SelNumFun(1,3)">dsygv</option>
+				 <option value = "Vall"  onClick="SelNumFun(1,4)">Select All</option>
+				 </select>
+            </td>              
+        </table> 
+ 	<hr />
+  	<div id = "daxpy" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">daxpy </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+
+
+
+ 	<div id = "dgeev" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">dgeev </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+
+ 	<div id = "dgels" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">dgels </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+ 	<div id = "dgemm" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">dgemm </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+
+
+ 	<div id = "dgemv" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">dgemv </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+
+
+ 	<div id = "dgesv" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">dgesv </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+              <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+
+
+ 	<div id = "dgetrf" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">dgetrf </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+
+ 	<div id = "dpotrf" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">dpotrf </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+ 	<div id = "dsygv" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">dsygv </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	    </table>
+         </div>
+
+ 	<div id = "allfun" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Available Library</td>
+            <td width = "250" align = "center">Custom Selection</td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+            <td width = "250" align = "center">LibSci</td>
+            <td width = "250" align = "center"><input type = "radio" name = "Libsci" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "Libsci" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><b>All Avaliable Functions</b> </td>
+             <td width = "250" align = "center">ACML</td>
+            <td width = "250" align = "center"><input type = "radio" name = "acml" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "acml" value = "0">Disabled<br>
+            </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"></td>
+             <td width = "250" align = "center">MKL</td>
+            <td width = "250" align = "center"><input type = "radio" name = "mkl" value = "1" checked = "yes">Enabled
+                              <input type = "radio" name = "mkl" value = "0">Disabled<br>
+            </td>
+            </tr>
+	  </table>
+         </div>
+    <br>
+    <br>
+    <br>
+	<div id = "Smit" style = "display:none" align = "left">
+            <table align = "left" width = "700" >
+	    <tr>
+		<td></td>
+		<td align = "center"><br><input type = "submit" value = "Generate Diagram" ></td>
+		<td></td>
+	    </tr>
+
+	    </table>
+	</div>
+      </div>
+
+      <div id="footer">&copy; 2012 National Institute for Computational Sciences.  All rights reserved.</div>
+ </div>
+
+    <br>
+</body>
+</html>
+

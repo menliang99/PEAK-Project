@@ -1,0 +1,977 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<script type="text/javascript">
+function SelNumFun2(index, comm)
+    {
+
+	if (index == 0 && comm == 0)
+         {
+          document.getElementById('Smit').style.display = 'none';
+          document.getElementById('daxpy').style.display = 'none';
+          document.getElementById('dgeev').style.display = 'none';
+          document.getElementById('dgels').style.display = 'none';
+          document.getElementById('dgemm').style.display = 'none';
+          document.getElementById('dgemv').style.display = 'none';
+          document.getElementById('dgesv').style.display = 'none';
+          document.getElementById('dgetrf').style.display = 'none';
+          document.getElementById('dpotrf').style.display = 'none';
+          document.getElementById('dsygv').style.display = 'none';
+         }
+	else
+	  document.getElementById('Smit').style.display = 'block';
+
+	if (index == 0 && comm == 1)
+
+          document.getElementById('daxpy').style.display = 'block';
+
+
+	if (index == 0 && comm == 2)
+          document.getElementById('dgeev').style.display = 'block';
+
+	if (index == 0 && comm == 3)
+          document.getElementById('dgels').style.display = 'block';
+
+	if (index == 0 && comm == 4)
+          document.getElementById('dgemm').style.display = 'block';
+
+	if (index == 0 && comm == 5)
+          document.getElementById('dgemv').style.display = 'block';
+
+	if (index == 1 && comm == 0)
+          document.getElementById('dgesv').style.display = 'block';
+
+	if (index == 1 && comm == 1)
+          document.getElementById('dgetrf').style.display = 'block';
+
+	if (index == 1 && comm == 2)
+          document.getElementById('dpotrf').style.display = 'block';
+
+	if (index == 1 && comm == 3)
+          document.getElementById('dsygv').style.display = 'block';
+
+	if (index == 1 && comm == 4)
+	 {
+          document.getElementById('daxpy').style.display = 'block';
+          document.getElementById('dgeev').style.display = 'block';
+          document.getElementById('dgels').style.display = 'block';
+          document.getElementById('dgemm').style.display = 'block';
+          document.getElementById('dgemv').style.display = 'block';
+          document.getElementById('dgesv').style.display = 'block';
+          document.getElementById('dgetrf').style.display = 'block';
+          document.getElementById('dpotrf').style.display = 'block';
+          document.getElementById('dsygv').style.display = 'block';
+	}
+
+    }
+
+
+ </script>
+
+
+<html>
+<head>
+<title>NICS PeaK</title>
+<![if !IE]>  <link href="styles/screen.css" rel="stylesheet" type="text/css" media="screen" /> <![endif]>
+</head>
+<body>
+<form action="cgi-bin/hello.cgi" enctype="multipart/form-data" method="POST">
+
+<div id="wrapper">
+
+	<div id="header">
+        <h1><!--<br><font size="80" face="arial" color="white">
+            Hthreads MPSoPC in the Cloud</font>--><img src = "images/peak.png"/></h1>
+
+
+
+	</div>
+	<div id="menu">
+                <center>
+		<ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="link.html"><li>Compiler Linking Tool</li></a>
+            <a href="execute.html"><li>Program Execution Tool</li></a>
+	    <a href="generate.html"><li>PEAK Performance Generator</li></a>
+            <a href="database.html"><li>PEAK Performance Checkout</li></a>
+            <a href="http://www.nics.tennessee.edu/"><li>NICS Home Page</li></a>
+		</ul>
+                </center>
+	</div>
+
+	<div id="content">
+         <table align = "center" ><b>Performance Generator Configuration</b> </table> 
+
+ 	 <hr />
+
+                    <table>
+                        <tr>
+                            <th width="1000"><b>Select Python Tasks</b><br></th>    
+                        </tr>
+		    </table>
+
+                    <table align = "center" border = "2" >
+
+                        <tr>
+				<td width = "350">Clean</td>
+				<td width = "350">Compilation</td>
+				<td width = "350">Execution</td>
+			</tr>
+
+		 <tr>
+                 <td width = "250" align = "center"><input type = "radio" name = "clean" value = "1"><b>Enabled</b><br>
+                                    <input type = "radio" name = "clean" value = "0" checked>Disabled<br>
+                  </td>
+                  <td width = "250" align = "center"><input type = "radio" name ="compile" value = "1"><b>Enabled</b><br>
+                                    <input type = "radio" name = "compile" value = "0" checked>Disabled<br>
+                 </td>
+               <td width = "250" align = "center"><input type = "radio" name = "execute" value = "1" checked><b>Enabled</b><br>
+                                    <input type = "radio" name = "execute" value = "0">Disabled<br>
+                 </td>	
+                        </tr>
+	</table>
+
+ 	 <hr />
+
+
+    	<table> 
+                        <tr>
+                            <th width="1000">Select Avaliable Libraries<br></th>    
+                        </tr>
+        </table>
+
+                    <table align = "center" border = "2" >
+
+                        <tr>
+				<td width = "350">LibSci</td>
+				<td width = "350">ACML</td>
+				<td width = "350">MKL</td>
+			</tr>
+
+			<tr>
+                                <td width = "250" align = "center"><input type = "radio" name = "LibSci" value = "1" checked><b>Enabled</b><br>
+                                    <input type = "radio" name = "LibSci" value = "0">Disabled<br>
+                                </td>
+                                <td width = "250" align = "center"><input type = "radio" name ="ACML" value = "1" checked><b>Enabled</b><br>
+                                    <input type = "radio" name = "ACML" value = "0">Disabled<br>
+                                </td>
+                                <td width = "250" align = "center"><input type = "radio" name = "MKL" value = "1" checked><b>Enabled</b><br>
+                                    <input type = "radio" name = "MKL" value = "0">Disabled<br>
+                                </td>
+                        </tr>
+		   </table>
+
+ 	 <hr />
+
+
+    	<table> 
+                        <tr>
+                            <th width="1000">Select Avaliable Compilers<br></th>    
+                        </tr>
+        </table>
+
+                    <table align = "center" border = "2" >
+
+                        <tr>
+				<td width = "350">PGI</td>
+				<td width = "350">Intel</td>
+				<td width = "350">GNU</td>
+			</tr>
+
+			<tr>
+                                <td width = "250" align = "center"><input type = "radio" name = "PGI" value = "1" checked><b>Enabled</b><br>
+                                    <input type = "radio" name = "PGI" value = "0">Disabled<br>
+                                </td>
+                                <td width = "250" align = "center"><input type = "radio" name ="Intel" value = "1" checked><b>Enabled</b><br>
+                                    <input type = "radio" name = "Intel" value = "0">Disabled<br>
+                                </td>
+                                <td width = "250" align = "center"><input type = "radio" name = "GNU" value = "1" checked><b>Enabled</b><br>
+                                    <input type = "radio" name = "GNU" value = "0">Disabled<br>
+                                </td>	
+                        </tr>
+		    </table>
+
+ 	 <hr />
+
+    	<table align = "left"> 
+           		 <td width="350"><b>Configure Numerical Functions: </b></td>
+	   		 <td>
+				 <select name = "FunSel2" width="300"> 
+                           	 <option value = "Vnone"  onClick="SelNumFun2(0, 0)">----</option>
+   				 <option value = "daxpy" onClick="SelNumFun2(0, 1)">daxpy</option>
+				 <option value = "dgeev" onClick="SelNumFun2(0, 2)">dgeev</option>
+				 <option value = "dgels" onClick="SelNumFun2(0, 3)">dgels</option>
+				 <option value = "dgemm" onClick="SelNumFun2(0, 4)">dgemm</option>
+				 <option value = "dgemv" onClick="SelNumFun2(0, 5)">dgemv</option>
+				 <option value = "dgesv" onClick="SelNumFun2(1, 0)">dgesv</option>
+				 <option value = "dgetrf" onClick="SelNumFun2(1,1)">dgetrf</option>
+				 <option value = "dpotrf" onClick="SelNumFun2(1,2)">dpotrf</option>
+				 <option value = "dsygv"  onClick="SelNumFun2(1,3)">dsygv</option>
+				 <option value = "Vall"  onClick="SelNumFun2(1,4)">Select All</option>
+				 </select>
+           		 </td> 
+        </table>
+
+
+        <div id = "daxpy" style = "display:none" align = "left">
+
+
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>daxpy</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "daxpymin" size = "1"> 
+                           	 <option selected value = "500"> 500 </option>
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "2000"> 2000 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "16000"> 16000 </option>
+                           	 <option value = "32000"> 32000 </option>
+                           	 <option value = "64000"> 64000 </option>
+                           	 <option value = "128000"> 128000 </option>
+                           	 <option value = "256000"> 256000 </option>
+                           	 <option value = "512000"> 512000 </option>
+                           	 <option value = "1024000"> 1024000 </option>
+                           	 <option value = "2048000"> 2048000 </option>
+                           	 <option value = "4096000"> 4096000 </option>
+                           	 <option value = "8192000"> 8192000 </option>
+                           	 <option value = "16384000"> 16384000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center">	<input type = "radio" name = "daxpy" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "daxpymax" size = "1">
+                           	 <option value = "500"> 500 </option>
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "2000"> 2000 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "16000"> 16000 </option>
+                           	 <option value = "32000"> 32000 </option>
+                           	 <option value = "64000"> 64000 </option>
+                           	 <option value = "128000"> 128000 </option>
+                           	 <option value = "256000"> 256000 </option>
+                           	 <option value = "512000"> 512000 </option>
+                           	 <option value = "1024000"> 1024000 </option>
+                           	 <option value = "2048000"> 2048000 </option>
+                           	 <option value = "4096000"> 4096000 </option>
+                           	 <option value = "8192000"> 8192000 </option>
+                           	 <option selected value = "16384000"> 16384000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "daxpy" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment by double</td>
+            <td width = "250" align = "center">
+                       		 <select name = "daxpystep" size = "1">
+                           	 <option selected value = "2"> 2 </option>
+                           	 <option value = "4"> 4 </option>
+				 </select>
+	    </td>
+            </tr>
+
+	    </table>
+
+        </div>
+
+        <div id = "dgeev" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>dgeev</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgeevmin" size = "1">
+                           	 <option selected value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option value = "2000"> 2000 </option>
+                          	 <option value = "2500"> 2500 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "3500"> 3500 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "4500"> 4500 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "5500"> 5500 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "6500"> 6500 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "7500"> 7500 </option>
+                           	 <option value = "8000"> 8000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgeev" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgeevmax" size = "1">
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option value = "2000"> 2000 </option>
+                          	 <option value = "2500"> 2500 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "3500"> 3500 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "4500"> 4500 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "5500"> 5500 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "6500"> 6500 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "7500"> 7500 </option>
+                           	 <option selected value = "8000"> 8000 </option>
+                       		 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgeev" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgeevstep" size = "1">
+                           	 <option value = "250"> 250 </option>
+                           	 <option value = "500"> 500 </option>
+                           	 <option selected value = "1000"> 1000 </option>
+				 </select> 
+	    </td>
+            </tr>
+
+	    </table>
+       
+         </div>
+
+
+        <div id = "dgels" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>dgels</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgelsmin" size = "1">
+                           	 <option selected value = "2000"> 2000 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "10000"> 10000 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "12000"> 12000 </option>
+                           	 <option value = "13000"> 13000 </option>
+                           	 <option value = "14000"> 14000 </option>
+                           	 <option value = "15000"> 15000 </option>
+                           	 <option value = "16000"> 16000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgels" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgelsmax" size = "1">
+                           	 <option value = "2000"> 2000 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "10000"> 10000 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "12000"> 12000 </option>
+                           	 <option value = "13000"> 13000 </option>
+                           	 <option value = "14000"> 14000 </option>
+                           	 <option value = "15000"> 15000 </option>
+                           	 <option selected value = "16000"> 16000 </option>
+                       		 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgels" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgelsstep" size = "1">
+                           	 <option value = "200"> 250 </option>
+                           	 <option value = "500"> 500 </option>
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option selected value = "2000"> 2000 </option>
+				 </select> 
+	    </td>
+            </tr>
+
+	    </table>
+       
+         </div>
+
+
+        <div id = "dgemm" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>dgemm</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgemmmin" size = "1">
+                           	 <option selected value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option value = "2000"> 2000 </option>
+                          	 <option value = "2500"> 2500 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "3500"> 3500 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "4500"> 4500 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "5500"> 5500 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "6500"> 6500 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "7500"> 7500 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "8500"> 8500 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "9500"> 9500 </option>
+                           	 <option value = "10000"> 10000 </option>
+                           	 <option value = "10500"> 10500 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "11500"> 11500 </option>
+                           	 <option value = "12000"> 12000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgemm" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgemmmax" size = "1">
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option value = "2000"> 2000 </option>
+                          	 <option value = "2500"> 2500 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "3500"> 3500 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "4500"> 4500 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "5500"> 5500 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "6500"> 6500 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "7500"> 7500 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "8500"> 8500 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "9500"> 9500 </option>
+                           	 <option selected value = "10000"> 10000 </option>
+                           	 <option value = "10500"> 10500 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "11500"> 11500 </option>
+                           	 <option value = "12000"> 12000 </option>
+                       		 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgemm" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgemmstep" size = "1">  
+                           	 <option value = "250"> 250 </option>                         	 
+                           	 <option value = "500"> 500 </option>
+                           	 <option selected value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>                         	 
+                           	 <option value = "2000"> 2000 </option>
+				 </select> 
+	    </td>
+            </tr>
+
+	    </table>
+       
+         </div>
+
+
+        <div id = "dgemv" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>dgemv</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgemvmin" size = "1">
+                           	 <option selected value = "100"> 100 </option>
+                           	 <option value = "120"> 150 </option>
+                           	 <option value = "150"> 300 </option>
+                           	 <option value = "180"> 300 </option>
+                           	 <option value = "400"> 400 </option>
+                           	 <option value = "500"> 500 </option>
+                           	 <option value = "600"> 600 </option>
+                           	 <option value = "800"> 800 </option>
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "1200"> 1200 </option>
+                           	 <option value = "1400"> 1400 </option>
+                           	 <option value = "1600"> 1600 </option>
+                           	 <option value = "2000"> 2000 </option>
+                           	 <option value = "2400"> 2400 </option>
+                           	 <option value = "2800"> 2800 </option>
+                           	 <option value = "3200"> 3200 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "5000"> 3800 </option>
+                           	 <option value = "6400"> 6400 </option>
+                           	 <option value = "12800"> 12800 </option>
+                           	 <option value = "25600"> 25600 </option>
+                           	 <option value = "51200"> 51200 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgemv" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgemvmax" size = "1">
+                           	 <option value = "100"> 100 </option>
+                           	 <option value = "120"> 150 </option>
+                           	 <option value = "150"> 300 </option>
+                           	 <option value = "180"> 300 </option>
+                           	 <option value = "400"> 400 </option>
+                           	 <option value = "500"> 500 </option>
+                           	 <option value = "600"> 600 </option>
+                           	 <option value = "800"> 800 </option>
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "1200"> 1200 </option>
+                           	 <option value = "1400"> 1400 </option>
+                           	 <option value = "1600"> 1600 </option>
+                           	 <option value = "2000"> 2000 </option>
+                           	 <option value = "2400"> 2400 </option>
+                           	 <option value = "2800"> 2800 </option>
+                           	 <option value = "3200"> 3200 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "5000"> 3800 </option>
+                           	 <option value = "6400"> 6400 </option>
+                           	 <option value = "12800"> 12800 </option>
+                           	 <option value = "25600"> 25600 </option>
+                           	 <option selected value = "51200"> 51200 </option>
+				</select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgemv" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment by double</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgemvstep" size = "1">
+                           	 <option selected value = "2"> 2 </option>
+                           	 <option value = "4"> 4 </option>
+				 </select> 
+	    </td>
+            </tr>
+
+	    </table>
+       
+         </div>
+
+
+        <div id = "dgesv" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>dgesv</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgesvmin" size = "1">
+                           	 <option selected value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option value = "2000"> 2000 </option>
+                          	 <option value = "2500"> 2500 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "3500"> 3500 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "4500"> 4500 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "5500"> 5500 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "6500"> 6500 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "7500"> 7500 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "8500"> 8500 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "9500"> 9500 </option>
+                           	 <option value = "10000"> 10000 </option>
+                           	 <option value = "10500"> 10500 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "11500"> 11500 </option>
+                           	 <option value = "12000"> 12000 </option>
+                           	 <option value = "12500"> 12500 </option>
+                           	 <option value = "13000"> 13000 </option>
+                           	 <option value = "13500"> 13500 </option>
+                           	 <option value = "14000"> 14000 </option>
+                           	 <option value = "14500"> 14500 </option>
+                           	 <option value = "15000"> 15000 </option>
+                           	 <option value = "15500"> 15500 </option>
+                           	 <option value = "16000"> 16000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgesv" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgesvmax" size = "1">
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option value = "2000"> 2000 </option>
+                          	 <option value = "2500"> 2500 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "3500"> 3500 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "4500"> 4500 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "5500"> 5500 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "6500"> 6500 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "7500"> 7500 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "8500"> 8500 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "9500"> 9500 </option>
+                           	 <option selected value = "10000"> 10000 </option>
+                           	 <option value = "10500"> 10500 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "11500"> 11500 </option>
+                           	 <option value = "12000"> 12000 </option>
+                           	 <option value = "12500"> 12500 </option>
+                           	 <option value = "13000"> 13000 </option>
+                           	 <option value = "13500"> 13500 </option>
+                           	 <option value = "14000"> 14000 </option>
+                           	 <option value = "14500"> 14500 </option>
+                           	 <option value = "15000"> 15000 </option>
+                           	 <option value = "15500"> 15500 </option>
+                           	 <option value = "16000"> 16000 </option>
+                       		 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgesv" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgesvstep" size = "1">
+                           	 <option value = "250"> 250 </option>                         	 
+                           	 <option value = "500"> 500 </option>
+                           	 <option selected value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>                         	 
+                           	 <option value = "2000"> 2000 </option>
+				 </select> 
+	    </td>
+            </tr>
+
+	    </table>
+       
+         </div>
+
+        <div id = "dgetrf" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>dgetrf</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgetrfmin" size = "1">
+                           	 <option selected value = "2000"> 2000 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "10000"> 10000 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "12000"> 12000 </option>
+                           	 <option value = "13000"> 13000 </option>
+                           	 <option value = "14000"> 14000 </option>
+                           	 <option value = "15000"> 15000 </option>
+                           	 <option value = "16000"> 16000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgetrf" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgetrfmax" size = "1">
+                           	 <option value = "2000"> 2000 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "10000"> 10000 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "12000"> 12000 </option>
+                           	 <option value = "13000"> 13000 </option>
+                           	 <option value = "14000"> 14000 </option>
+                           	 <option value = "15000"> 15000 </option>
+                           	 <option selected value = "16000"> 16000 </option>
+                       		 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dgetrf" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dgetrfstep" size = "1">
+                           	 <option value = "500"> 500 </option>
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option selected value = "2000"> 2000 </option>
+				 </select> 
+	    </td>
+            </tr>
+
+	    </table>
+       
+         </div>
+
+
+        <div id = "dpotrf" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>dpotrf</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dpotrfmin" size = "1">
+                           	 <option selected value = "2000"> 2000 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "10000"> 10000 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "12000"> 12000 </option>
+                           	 <option value = "13000"> 13000 </option>
+                           	 <option value = "14000"> 14000 </option>
+                           	 <option value = "15000"> 15000 </option>
+                           	 <option value = "16000"> 16000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dpotrf" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dpotrfmax" size = "1">
+                           	 <option value = "2000"> 2000 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "8000"> 8000 </option>
+                           	 <option value = "9000"> 9000 </option>
+                           	 <option value = "10000"> 10000 </option>
+                           	 <option value = "11000"> 11000 </option>
+                           	 <option value = "12000"> 12000 </option>
+                           	 <option value = "13000"> 13000 </option>
+                           	 <option value = "14000"> 14000 </option>
+                           	 <option value = "15000"> 15000 </option>
+                           	 <option selected value = "16000"> 16000 </option>
+                       		 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dpotrf" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dpotrfstep" size = "1">
+                           	 <option value = "500"> 500 </option>
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option selected value = "2000"> 2000 </option>
+				 </select> 
+	    </td>
+            </tr>
+
+	    </table>
+       
+         </div>
+
+
+        <div id = "dsygv" style = "display:none" align = "left">
+            <table align = "left" width = "700" border = "2">
+
+	    <tr>
+	    <td width = "250" align = "center">Numerical Function</td>
+            <td width = "250" align = "center">Matrix Size</td>
+            <td width = "250" align = "center">Custom Configure</td>
+            </tr>
+
+
+	    <tr>
+	    <td width = "250" align = "center"><b>dsygv</b></td>
+            <td width = "250" align = "center"> Minimum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dsygvmin" size = "1">
+                           	 <option selected value = "500"> 500 </option>
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option value = "2000"> 2000 </option>
+                          	 <option value = "2500"> 2500 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "3500"> 3500 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "4500"> 4500 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "5500"> 5500 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "6500"> 6500 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "7500"> 7500 </option>
+                           	 <option value = "8000"> 8000 </option>
+                          	 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dsygv" value = "1" >Enabled</td>
+            <td width = "250" align = "center"> Maximum</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dsygvmax" size = "1">
+                           	 <option value = "1000"> 1000 </option>
+                           	 <option value = "1500"> 1500 </option>
+                           	 <option value = "2000"> 2000 </option>
+                          	 <option value = "2500"> 2500 </option>
+                           	 <option value = "3000"> 3000 </option>
+                           	 <option value = "3500"> 3500 </option>
+                           	 <option value = "4000"> 4000 </option>
+                           	 <option value = "4500"> 4500 </option>
+                           	 <option value = "5000"> 5000 </option>
+                           	 <option value = "5500"> 5500 </option>
+                           	 <option value = "6000"> 6000 </option>
+                           	 <option value = "6500"> 6500 </option>
+                           	 <option value = "7000"> 7000 </option>
+                           	 <option value = "7500"> 7500 </option>
+                           	 <option selected value = "8000"> 8000 </option>
+                       		 </select>
+	    </td>
+            </tr>
+
+	    <tr>
+	    <td width = "250" align = "center"><input type = "radio" name = "dsygv" value = "0" checked>Disabled</td>
+            <td width = "250" align = "center">Increment</td>
+            <td width = "250" align = "center">
+                       		 <select name = "dsygvstep" size = "1">
+                           	 <option value = "500"> 500 </option>
+                           	 <option selected value = "1000"> 1000 </option>
+				 </select> 
+	    </td>
+            </tr>
+
+	    </table>
+       
+         </div>
+
+	<div id = "Smit" style = "display:none" align = "left">
+            <table align = "left" width = "700" >
+	    <tr>
+		<td></td>
+		<td align = "center"><br><input type = "submit" value = "Generate Python Scripts" ></td>
+		<td></td>
+	    </tr>
+
+	    </table><br><br><br>
+	</div>
+
+     </div>
+
+	<div id="footer">&copy; 2012 National Institute for Computational Sciences.  All rights reserved.</div>
+
+ </div>
+
+
+</body>
+</html>
+

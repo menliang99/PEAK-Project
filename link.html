@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<script type="text/javascript">
+    function SelNumFun3(index)
+    {
+	if (index == 0)
+          document.getElementById('Smit').style.display = 'none';
+	else
+	  document.getElementById('Smit').style.display = 'block';
+    }
+
+ </script>
+
+
+<html>
+<head>
+<title>NICS PeaK</title>
+<![if !IE]>  <link href="styles/screen.css" rel="stylesheet" type="text/css" media="screen" /> <![endif]>
+</head>
+<body>
+<form action="cgi-bin/checklink.cgi" enctype="multipart/form-data" method="POST">
+
+<div id="wrapper">
+
+	<div id="header">
+        <h1><!--<br><font size="80" face="arial" color="white">
+            Hthreads MPSoPC in the Cloud</font>--><img src = "images/peak.png"/></h1>
+
+
+
+	</div>
+	<div id="menu">
+                <center>
+		<ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="link.html"><li>Compiler Linking Tool</li></a>
+            <a href="execute.html"><li>Program Execution Tool</li></a>
+	    <a href="generate.html"><li>PEAK Performance Generator</li></a>
+            <a href="database.html"><li>PEAK Performance Checkout</li></a>
+            <a href="http://www.nics.tennessee.edu/"><li>NICS Home Page</li></a>
+		</ul>
+                </center>
+	</div>
+
+	<div id="content">
+        <table align = "center" ><b>Compiler and Library Link Advisor</b>
+        </table> 
+ 	<hr />
+    	<table> 
+            <td width="250" >Select Platform: </td>
+            <td width="250" >Select Library: </td>
+            <td width="250" >Select Compiler: </td>
+        </table>
+
+        <table>
+	    <td width="200" align = "center">
+                       		 <select name = "computer" size = "1"> 
+                           	 <option selected value = "0" onClick="SelNumFun3(0)"> -- -- </option>
+                           	 <option value = "1" onClick="SelNumFun3(1)"> Kraken </option>
+                           	 <option value = "2" onClick="SelNumFun3(1)"> Nautilus </option>
+                          	 </select>
+            </td>    
+
+	    <td width="150" align = "center">
+                       		 <select name = "library" size = "1"> 
+                           	 <option selected value = "0" onClick="SelNumFun3(0)"> -- -- </option>
+                           	 <option value = "1" onClick="SelNumFun3(1)"> LibSci </option>
+                           	 <option value = "2" onClick="SelNumFun3(1)"> ACML </option>
+                           	 <option value = "3" onClick="SelNumFun3(1)"> MKL </option>
+                          	 </select>
+            </td>  
+
+	    <td width="200" align = "right">
+                       		 <select name = "compiler" size = "1"> 
+                           	 <option selected value = "0" onClick="SelNumFun3(0)"> -- -- </option>
+                           	 <option value = "1" onClick="SelNumFun3(1)"> PGI </option>
+                           	 <option value = "2" onClick="SelNumFun3(1)"> GNU </option>
+                           	 <option value = "3" onClick="SelNumFun3(1)"> Intel </option>
+                          	 </select>
+            </td>            
+        </table> 
+ 	<hr />
+ 
+    <br>
+
+	<div id = "Smit" style = "display:none" align = "left">
+            <table align = "left" width = "200" >
+	    <tr>
+		<td></td>
+		<td align = "center"><br><input type = "submit" value = "Check Link Options" ></td>
+		<td></td>
+	    </tr>
+
+	    </table>
+	</div>
+      </div>
+
+      <div id="footer">&copy; 2012 National Institute for Computational Sciences.  All rights reserved.</div>
+ </div>
+
+    <br>
+</body>
+</html>
+
